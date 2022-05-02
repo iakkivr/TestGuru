@@ -12,7 +12,6 @@
 #
 class Test < ApplicationRecord
   def self.sort_by_category(category)
-    category_id = Category.where(title: category).take&.id
-    Test.where(category_id: category_id).order(title: :desc).pluck(:title)
+        Test.joins(:categories)
+          .where(categories: { title: category }).order(title: :desc)
   end
-end
