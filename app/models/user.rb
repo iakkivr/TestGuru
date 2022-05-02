@@ -9,7 +9,8 @@
 #
 class User < ApplicationRecord
   def tests_by_user(level)
-    Test.where(author_id: id, level: level)
+    Test.joins('JOIN results ON tests.id = results.test_id')
+        .where({ level: level }).where({ results: { user_id: id } })
   end
 end
 
