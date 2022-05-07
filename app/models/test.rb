@@ -1,2 +1,19 @@
+# == Schema Information
+#
+# Table name: tests
+#
+#  id          :integer          not null, primary key
+#  title       :string(50)       not null
+#  level       :integer          default(0), not null
+#  category_id :integer          not null
+#  author_id   :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 class Test < ApplicationRecord
-end
+  def self.sort_by_category(category)
+        Test.joins('JOIN categories ON categories.id = tests.category_id')
+          .where(categories: { title: category }).order(title: :desc)
+  end
+ end
+

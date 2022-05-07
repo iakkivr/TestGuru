@@ -58,6 +58,9 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
@@ -76,6 +79,8 @@ GEM
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     erubi (1.10.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -201,9 +206,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  annotate (~> 3)
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  faker (~> 2)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   puma (~> 4.1)
