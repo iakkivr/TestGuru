@@ -8,9 +8,12 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+  has_many :created_tests, class_name: "Test", foreign_key: "author_id", dependent: :destroy
+  has_many :tests_passages, dependent: :destroy
+  has_many :tests, through: :tests_users
+
   def tests_by_user(level)
-    Test.joins('JOIN results ON tests.id = results.test_id')
-        .where({ level: level }).where({ results: { user_id: id } })
+    tests.where(level: level)
   end
 end
 
