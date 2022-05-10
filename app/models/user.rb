@@ -15,5 +15,7 @@ class User < ApplicationRecord
   def tests_by_user(level)
     tests.where(level: level)
   end
+
+  URI::MailTo::EMAIL_REGEXP
 end
 

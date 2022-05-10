@@ -18,10 +18,15 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passages
   has_many :test_passages, dependent: :destroy
 
-  def self.sort_by_category(category_title)
+
+  scope :easy, -> { where level: 0..1 }
+  scope :middle, -> { where level: 2..4 }
+  scope :hard, -> { where level: 4..Float::INFINITY }
+  scope :sort_by_category, -> (category_title) {
     joins(:category)
       .where(categories: { title: category_title })
       .order(title: :desc)
       .pluck(:title)
-  end
+  }
+
  end
