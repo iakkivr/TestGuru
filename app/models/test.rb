@@ -11,9 +11,17 @@
 #  updated_at  :datetime         not null
 #
 class Test < ApplicationRecord
-  def self.sort_by_category(category)
-        Test.joins('JOIN categories ON categories.id = tests.category_id')
-          .where(categories: { title: category }).order(title: :desc)
+  belongs_to :category
+  belongs_to :author, class_name: 'User', foreign_key: "author_id"
+
+  has_many :questions, dependent: :destroy
+  has_many :users, through: :test_passages
+  has_many :test_passages, dependent: :destroy
+
+  def self.sort_by_category(category_title)
+    joins(:category)
+      .where(categories: { title: category_title })
+      .order(title: :desc)
+      .pluck(:title)
   end
  end
-
