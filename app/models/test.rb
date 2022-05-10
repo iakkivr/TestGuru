@@ -18,6 +18,10 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passages
   has_many :test_passages, dependent: :destroy
 
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :title, uniqueness: { scope: :level }
+
 
   scope :easy, -> { where level: 0..1 }
   scope :middle, -> { where level: 2..4 }

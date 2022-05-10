@@ -12,10 +12,13 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
+  validates :name, presence: true, length: {maximum: 100}
+  validates :email, presence: true, length: { maximum: 100}, uniqueness: { case_sensitive: false },
+            format: {with: URI::MailTo::EMAIL_REGEXP, message: "Wrong email"}
+
   def tests_by_user(level)
     tests.where(level: level)
   end
 
-  URI::MailTo::EMAIL_REGEXP
 end
 
