@@ -30,7 +30,10 @@ class Test < ApplicationRecord
     joins(:category)
       .where(categories: { title: category_title })
       .order(title: :desc)
-      .pluck(:title)
   }
+
+  def self.category_title(title)
+    sort_by_category(title).pluck(:title)
+  end
 
  end
