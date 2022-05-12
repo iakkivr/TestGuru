@@ -11,4 +11,15 @@
 #
 class Answer < ApplicationRecord
   belongs_to :question
+
+  validate :wrong_number_of_answers, on: :create
+  validates :body, presence: true
+
+  def wrong_number_of_answers
+    errors.add(:answers, "must contain 1 to 4 answers") if
+      question.answers.count >= 4
+  end
+
+  scope :correct, -> { where correct: true }
+
 end
