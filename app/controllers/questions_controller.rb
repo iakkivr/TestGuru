@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: %i[index create destroy new]
+  before_action :set_test, only: %i[index create new]
   before_action :set_question, only: %i[show destroy]
 
   def index
-    render json: @test.questions
+    @test.questions
   end
 
   def show
