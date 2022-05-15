@@ -43,8 +43,4 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:body)
   end
 
-  def check_authorization
-    raise User::NotAuthorized unless current_user.admin?
-  end
-
 end
