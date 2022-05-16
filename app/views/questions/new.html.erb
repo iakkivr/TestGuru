@@ -1,0 +1,9 @@
+<h2>Create a new question</h2>
+<%= form_with model: [@test, @question] do |f| %>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, required: true, minlength: 10, placeholder: 'Body' %>
+  </div>
+  <%= f.submit "Submit question!" %>
+<% end %>
+
