@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Testguru</title>
@@ -11,14 +11,8 @@
   </head>
 
   <body>
-    <header class="p-3 bg-dark text-white">
-      <div class="container">
-        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <li style="list-style-type: none"><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-          <li style="list-style-type: none"><%= link_to 'Tests', tests_path, class: 'nav-link px-2 text-white' %></li>
-        </nav>
-      </div>
-    </header>
+    <%= render 'shared/header' %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
