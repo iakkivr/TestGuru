@@ -1,7 +1,12 @@
   <article class="card">
     <div class="card-body">
       <h4><%= test.title %></h4>
-      <%= link_to 'Show test', test_path(test), class: 'btn btn-primary' %>
-      <%= pluralize(test.questions.count, 'question', plural: 'questions') %>
+
+      <div class="m-lg-2">
+        <%= link_to pass_button(@user, test), start_test_path(test), method: :post, class: 'btn btn-info' %>
+        <%= link_to 'Show test', test_path(test), class: 'btn btn-primary' %>
+        <%= pluralize(test.questions.count, 'question', plural: 'questions') %>
+      </div>
+
       </div>
   </article>

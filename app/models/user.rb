@@ -6,6 +6,7 @@
 #  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  email      :string
 #
 class User < ApplicationRecord
   has_many :created_tests, class_name: "Test", foreign_key: "author_id", dependent: :destroy
@@ -20,5 +21,8 @@ class User < ApplicationRecord
     tests.where(level: level)
   end
 
+  def test_passage(test)
+    test_passages.find_by(test_id: test.id)
+  end
 end
 
