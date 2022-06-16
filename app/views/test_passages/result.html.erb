@@ -1,0 +1,5 @@
+<h1>The <%= @test_passage.test.title %> Test was completed!</h1>
+<div <% if result(@test_passage) >= 85 %> class="alert alert-success" <% else %> class="alert alert-danger" <% end %>>
+  <%= result_message(@test_passage)  %>
+</div>
+

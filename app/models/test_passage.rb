@@ -21,16 +21,20 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
-      self.correct_answers += 1
+      self.correct_questions += 1
     end
 
     self.current_question = next_question
-    save
+    save!
+  end
+
+  def completed?
+    current_question.nil?
   end
 
   private
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    (answer_ids.nil? && correct_answers.count == 0) || (correct_answers.ids.sort == answer_ids.map(&:to_i).sort)
   end
 
   def correct_answers
