@@ -19,6 +19,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  SUCCESS_RATIO = 85
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
@@ -32,9 +34,23 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def serial_number_question
+    "Вопрос #{@test.questions.map(&:id).index(@test_passage.current_question.id) + 1} из #{@test.questions.count} "
+  end
+
+  def result(test_passages)
+    (test_passages.correct_questions.to_f / test_passages.test.questions.count * 100).round(1)
+  end
+
+  def result_message(test_passages)
+    score = result(test_passages)
+    score >= SUCCESS_RATIO ? "Congratulations, your score is #{score}%, great" : "Sorry, you didn't pass. Your score is #{score}%"
+  end
+
   private
+
   def correct_answer?(answer_ids)
-    (answer_ids.nil? && correct_answers.count == 0) || (correct_answers.ids.sort == answer_ids.map(&:to_i).sort)
+    correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 
   def correct_answers
