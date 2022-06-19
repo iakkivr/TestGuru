@@ -2,14 +2,14 @@
 #
 # Table name: test_passages
 #
-#  id                    :integer          not null, primary key
-#  user_id               :integer          not null
-#  test_id               :integer          not null
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
-#  current_question_id   :integer
-#  correct_answers_count :integer
-#  score                 :decimal(, )
+#  id                  :integer          not null, primary key
+#  user_id             :integer          not null
+#  test_id             :integer          not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  current_question_id :integer
+#  correct_questions   :integer          default(0)
+#  score               :decimal(, )
 #
 class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -35,16 +35,21 @@ class TestPassage < ApplicationRecord
   end
 
   def serial_number_question
-    "Вопрос #{@test.questions.map(&:id).index(@test_passage.current_question.id) + 1} из #{@test.questions.count} "
+    "Вопрос #{test.questions.map(&:id).index(current_question.id) + 1} из #{test.questions.count} "
   end
 
-  def result(test_passages)
-    (test_passages.correct_questions.to_f / test_passages.test.questions.count * 100).round(1)
+  def result
+    (correct_questions.to_f / test.questions.count * 100).round(1)
   end
 
-  def result_message(test_passages)
-    score = result(test_passages)
-    score >= SUCCESS_RATIO ? "Congratulations, your score is #{score}%, great" : "Sorry, you didn't pass. Your score is #{score}%"
+  def successful?
+    result >= SUCCESS_RATIO
+  end
+
+  def result_message
+    score = result
+    successful? ? "Congratulations, your score is #{score}%, great" : "Sorry, you didn't pass. Your score
+is #{score}%"
   end
 
   private
