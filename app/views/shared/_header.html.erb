@@ -3,6 +3,11 @@
     <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <li style="list-style-type: none"><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
       <li style="list-style-type: none"><%= link_to 'Tests', tests_path, class: 'nav-link px-2 text-white' %></li>
+      <li style="list-style-type: none">    <% if logged_in? %>
+          <p class="nav user-select-all"> Welcome, <b><%= current_user.email %> Guru</b></p>
+        <% end %>
+      </li>
     </nav>
+
   </div>
 </header>
