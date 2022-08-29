@@ -1,3 +1,11 @@
+class Question < ApplicationRecord
+  belongs_to :test
+
+  has_many :answers, dependent: :destroy
+
+  validates :body, presence: true, length: {minimum: 10}
+end
+
 # == Schema Information
 #
 # Table name: questions
@@ -8,11 +16,3 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Question < ApplicationRecord
-  belongs_to :test
-
-  has_many :answers, dependent: :destroy
-
-  validates :body, presence: true, length: {minimum: 10}
-end
-

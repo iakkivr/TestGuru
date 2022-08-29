@@ -1,8 +1,29 @@
-<header class="p-3 bg-dark text-white">
-  <div class="container">
-    <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <li style="list-style-type: none"><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-      <li style="list-style-type: none"><%= link_to 'Tests', tests_path, class: 'nav-link px-2 text-white' %></li>
+
+<header class="navbar navbar-fixed-top navbar-inverse p-3 bg-dark text-white">
+<div class="container">
+  <div class="float-left">
+    <nav>
+      <ul style="list-style-type: none" class="d-flex flex-wrap align-items-center justify-content-center
+      justify-content-lg-start ">
+        <li><%= link_to "Home", root_path, class: 'nav-link px-2 text-white'%></li>
+        <li><%= link_to "Tests", tests_path, class: 'nav-link px-2 text-white'%></li>
+      </ul>
     </nav>
   </div>
+
+  <div class="float-right">
+    <nav>
+      <ul style="list-style-type: none" class="d-flex flex-wrap align-items-center justify-content-center
+      justify-content-lg-start ">
+        <% if logged_in? %>
+          <p class="nav user-select-all "> Welcome,&nbsp<b><%= current_user.name %> <%= link_to_root %></b></p>
+          <li><%= link_to "Log out", logout_path, method: :delete, class: 'nav-link px-2 text-white'%></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to "Signup", signup_path, class: 'nav-link px-2 text-white'%></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>
 </header>

@@ -1,16 +1,3 @@
-# == Schema Information
-#
-# Table name: test_passages
-#
-#  id                  :integer          not null, primary key
-#  user_id             :integer          not null
-#  test_id             :integer          not null
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  current_question_id :integer
-#  correct_questions   :integer          default(0)
-#  score               :decimal(, )
-#
 class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
@@ -70,3 +57,17 @@ is #{score}%"
     self.current_question = test.questions.first if test.present?
   end
 end
+
+# == Schema Information
+#
+# Table name: test_passages
+#
+#  id                  :integer          not null, primary key
+#  user_id             :integer          not null
+#  test_id             :integer          not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  current_question_id :integer
+#  correct_questions   :integer          default(0)
+#  score               :decimal(, )
+#
