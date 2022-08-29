@@ -1,15 +1,22 @@
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
 
   has_many :created_tests, class_name: "Test", foreign_key: "author_id", dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
-  validates :name, presence: true, length: {maximum: 100}
+  # validates :name, presence: true, length: {maximum: 100}
   validates :email, presence: true, length: { maximum: 100}, uniqueness: { case_sensitive: false },
             format: {with: URI::MailTo::EMAIL_REGEXP, message: "Wrong email"}
-
-  has_secure_password
 
   def tests_by_user(level)
     tests.where(level: level)
@@ -20,6 +27,7 @@ class User < ApplicationRecord
   end
 
 end
+
 
 # == Schema Information
 #
