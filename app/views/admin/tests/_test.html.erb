@@ -1,0 +1,16 @@
+  <article class="card">
+    <div class="card-body">
+      <h4><%= test.title %></h4>
+
+      <div class="m-lg-2">
+        <%= link_to 'Show test', admin_test_path(test), class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_admin_test_path(test), class: 'btn btn-primary' %>
+        <%= link_to 'Delete', admin_test_path(test),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'},
+                    class: 'btn btn-danger' %>
+        <%= pluralize(test.questions.count, 'question', plural: 'questions') %>
+      </div>
+
+      </div>
+  </article>

@@ -16,7 +16,7 @@
       <ul style="list-style-type: none" class="d-flex flex-wrap align-items-center justify-content-center
       justify-content-lg-start ">
         <% if user_signed_in? %>
-          <p class="nav user-select-all "> Welcome,&nbsp<b><%= current_user.name %> <%= link_to_root %></b></p>
+          <p class="nav user-select-all "> Welcome,&nbsp<b><%= current_user.first_name %> <%= link_to_root %></b></p>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link px-2 text-white'%></li>
         <% else %>
           <li><%= link_to "Login", user_session_path, class: 'nav-link px-2 text-white' %></li>

@@ -24,10 +24,10 @@
 #  first_name             :string
 #  last_name              :string
 #
-one:
-  name: MyString
-  role: one
+require 'test_helper'
 
-two:
-  name: MyString
-  role: two
+class AdminTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

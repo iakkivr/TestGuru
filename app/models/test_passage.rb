@@ -17,6 +17,12 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def restart_test
+    self.current_question = test.questions.first
+    self.score = result
+    save!
+  end
+
   def completed?
     current_question.nil?
   end

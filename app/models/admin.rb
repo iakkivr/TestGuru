@@ -1,3 +1,10 @@
+class Admin < User
+
+  validates :first_name,presence: true
+  validates :last_name,presence: true
+
+end
+
 # == Schema Information
 #
 # Table name: users
@@ -24,10 +31,3 @@
 #  first_name             :string
 #  last_name              :string
 #
-one:
-  name: MyString
-  role: one
-
-two:
-  name: MyString
-  role: two

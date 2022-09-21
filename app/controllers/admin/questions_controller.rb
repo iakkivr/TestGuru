@@ -1,12 +1,11 @@
-class QuestionsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::QuestionsController < Admin::BaseController
+
   before_action :set_test, only: %i[create new]
   before_action :set_question, only: %i[show update edit destroy]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
 
   def show
+    @answers = @question.answers
   end
 
   def new
@@ -17,18 +16,17 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to @question
+      redirect_to admin_question_path(@question)
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test)
+      redirect_to admin_test_path(@question.test)
     else
       render :edit
     end
@@ -36,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test)
+    redirect_to admin_test_path(@question.test)
   end
 
   private

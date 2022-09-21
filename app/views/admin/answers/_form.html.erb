@@ -1,0 +1,22 @@
+<%= form_with model: [:admin, @question, @answer],  local: true do |f| %>
+  <div>
+    <%= render 'shared/errors', object: @answer %>
+  </div>
+  <div class="mb-3 row m-lg-2">
+    <%= f.label :body, class: 'col-sm-1 col-form-label' %>
+    <%= f.text_field :body, placeholder: 'Body',
+                     class: 'col-sm-5 col-form-label form-control' %>
+  </div>
+
+  <div class="mb-3 row m-lg-2">
+    <%= f.label :correct, class: 'col-sm-1 col-form-label' %>
+    <%= f.check_box :correct, placeholder: 'Body',
+                     class: 'form-check-input' %>
+  </div>
+
+
+  <div class="m-lg-2">
+    <%= f.submit "Submit answer!", class: 'btn btn-success mb-3 '%>
+  </div>
+
+<% end %>
