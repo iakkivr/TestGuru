@@ -1,24 +1,19 @@
 class TestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_test, only: %i[start]
-  before_action :set_user, only: %i[start index]
 
   def index
     @tests = Test.all
   end
 
   def start
-    @user.tests.push(@test) unless @user.tests.include?(@test)
-    redirect_to @user.test_passage(@test)
+    set_test
+    current_user.tests.push(@test) unless current_user.tests.include?(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = current_user
   end
 
 end

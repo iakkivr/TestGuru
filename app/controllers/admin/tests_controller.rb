@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %i[show update edit destroy start]
+  before_action :set_test, only: %i[show update edit destroy]
 
   def index
     @tests = Test.all
@@ -46,6 +46,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
