@@ -1,0 +1,11 @@
+<article class="card">
+  <div class="card-body">
+    <h4><%= answer.body %></h4>
+    <h4><%= answer.correct %></h4>
+    <%= link_to 'Edit', edit_admin_answer_path(answer), class: 'btn btn-secondary' %>
+    <%= link_to 'Delete', admin_answer_path(answer),
+                method: :delete,
+                data: { confirm: 'Are you sure?'},
+                class: 'btn btn-danger' %>
+  </div>
+</article>

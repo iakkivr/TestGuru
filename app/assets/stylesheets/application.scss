@@ -1,4 +1,9 @@
 @import "bootstrap";
+/*
+*= require_tree .
+*= require main
+*= require_self
+*/
 
 .field_with_errors {
   .form-control {

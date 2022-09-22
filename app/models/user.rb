@@ -1,15 +1,21 @@
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
 
   has_many :created_tests, class_name: "Test", foreign_key: "author_id", dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
-  validates :name, presence: true, length: {maximum: 100}
   validates :email, presence: true, length: { maximum: 100}, uniqueness: { case_sensitive: false },
             format: {with: URI::MailTo::EMAIL_REGEXP, message: "Wrong email"}
-
-  has_secure_password
 
   def tests_by_user(level)
     tests.where(level: level)
@@ -21,14 +27,30 @@ class User < ApplicationRecord
 
 end
 
+
 # == Schema Information
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  email           :string
-#  password_digest :string
+#  id                     :integer          not null, primary key
+#  name                   :string           default("name"), not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  email                  :string           default("")
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  type                   :string           default("User"), not null
+#  first_name             :string
+#  last_name              :string
 #
