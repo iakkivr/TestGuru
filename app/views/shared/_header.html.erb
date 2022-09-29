@@ -5,8 +5,8 @@
     <nav>
       <ul style="list-style-type: none" class="d-flex flex-wrap align-items-center justify-content-center
       justify-content-lg-start ">
-        <li><%= link_to "Home", root_path, class: 'nav-link px-2 text-white'%></li>
-        <li><%= link_to "Tests", tests_path, class: 'nav-link px-2 text-white'%></li>
+        <li><%= link_to t('.root'), root_path, class: 'nav-link px-2 text-white'%></li>
+        <li><%= link_to t('.tests'), tests_path, class: 'nav-link px-2 text-white'%></li>
       </ul>
     </nav>
   </div>
@@ -16,11 +16,11 @@
       <ul style="list-style-type: none" class="d-flex flex-wrap align-items-center justify-content-center
       justify-content-lg-start ">
         <% if user_signed_in? %>
-          <p class="nav user-select-all "> Welcome,&nbsp<b><%= current_user.first_name %> <%= link_to_root %></b></p>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link px-2 text-white'%></li>
+          <p class="nav user-select-all "> <%= t('.nav_user', user: current_user.first_name) %>  &nbsp; <%= link_to_root %></b></p>
+          <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link px-2 text-white'%></li>
         <% else %>
-          <li><%= link_to "Login", user_session_path, class: 'nav-link px-2 text-white' %></li>
-          <li><%= link_to "Signup", new_user_registration_path, class: 'nav-link px-2 text-white'%></li>
+          <li><%= link_to t('.login'), user_session_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to t('.signup'), new_user_registration_path, class: 'nav-link px-2 text-white'%></li>
         <% end %>
       </ul>
     </nav>
