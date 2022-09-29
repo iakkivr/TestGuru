@@ -3,8 +3,8 @@
       <h4><%= test.title %></h4>
 
       <div class="m-lg-2">
-        <%= link_to pass_button(@user, test), start_test_path(test), method: :post, class: 'btn btn-info' %>
-        <%= pluralize(test.questions.count, 'question', plural: 'questions') %>
+        <%= link_to pass_button(current_user, test), start_test_path(test), method: :post, class: 'btn btn-info' %>
+        <%= t('.questions', count: test.questions.count) %>
       </div>
 
       </div>

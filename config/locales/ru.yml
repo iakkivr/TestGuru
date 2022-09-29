@@ -1,0 +1,99 @@
+ru:
+
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Выберите"
+    # Default translation keys for submit and button FormHelper
+    submit:
+      create: 'Создать %{model}'
+      update: 'Обновить %{model}'
+      submit: 'Сохранить %{model}'
+
+
+    label:
+      test:
+        title: "Название"
+        level: "Уровень сложности"
+        category_id: "Категория"
+      answer:
+        body: "Ответ"
+        correct: "Верный"
+      question:
+        body: "Вопрос"
+
+    link:
+      show: "Показать "
+      edit: "Редактировать"
+      delete: "Удалить"
+      add: "Добавить"
+      back: "Вернуться"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+    header:
+      root: "Главная"
+      tests: "Тесты"
+      nav_user: "Добро пожаловать, %{user}"
+      logout: "Выход"
+      login: "Вход"
+      signup: "Регистрация"
+
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      button:
+        begin: "Начать"
+        restart: "Заново"
+        continue: "Продолжить"
+    test:
+      questions:
+        few: "В тесте %{count} вопроса"
+        many: "В тесте %{count} вопросов"
+        one: "В тесте %{count} вопрос"
+        other: "В тесте %{count} вопросов"
+
+
+
+  pages:
+    index:
+      welcome: "Добро пожаловать в TestGuru!"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+    show:
+     submit: "Ответить"
+
+  admin:
+    tests:
+      nav:
+        header: "Панель администратора"
+      create:
+        success:  "Тест успешно создан"
+      index:
+        header: "Досутпные тесты"
+      new:
+        header: "Создание теста"
+      show:
+        header: "Список вопросов:"
+    answers:
+      new:
+        header: "Создание ответа"
+      edit:
+        header: "Редактирование ответа"
+    questions:
+      new:
+        header: "Создание вопроса для %{test_title}"
+      edit:
+        header: "Редактирование вопроса для %{test_title}"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"

@@ -1,11 +1,11 @@
 <h2><em>Question: <%= @question.body %></em></h2>
 
 <div class="m-lg-2">
-  <%= link_to 'Add answer', new_admin_question_answer_path(@question), class: 'btn btn-primary mt-3' %>
+  <%= link_to t('helpers.link.add'), new_admin_question_answer_path(@question), class: 'btn btn-primary mt-3' %>
 </div>
 
 <%= render partial: 'admin/answers/answer', collection: @answers %>
 
 <div class="m-lg-2">
-  <%= link_to 'Back to questions', admin_test_path(@question.test), class: 'btn btn-secondary mt-3 mb-3 ml-3' %>
+  <%= link_to t('helpers.link.back'), admin_test_path(@question.test), class: 'btn btn-secondary mt-3 mb-3 ml-3' %>
 </div>
