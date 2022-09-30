@@ -4,10 +4,13 @@ ru:
       test: "Тест"
       answer: "Ответ"
       question: "Вопрос"
+      category: "Категория"
+      user: "Пользователь"
 
     attributes:
       test:
         title: "Название"
+        category: "Категория"
 
     errors:
       messages:

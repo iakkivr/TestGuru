@@ -1,16 +1,17 @@
-  <article class="card">
-    <div class="card-body">
-      <h4><%= test.title %></h4>
-
-      <div class="m-lg-2">
-        <%= link_to t('helpers.link.show'), admin_test_path(test), class: 'btn btn-primary' %>
-        <%= link_to t('helpers.link.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %>
-        <%= link_to t('helpers.link.delete'), admin_test_path(test),
-                    method: :delete,
-                    data: {confirm: 'Are you sure?'},
-                    class: 'btn btn-danger' %>
-        <%= pluralize(test.questions.count, 'question', plural: 'questions') %>
+  <div class="col-auto justify-content-center">
+    <div class="card mt-2">
+        <div class="card-body">
+          <h4 class="card-title"><%= test.title %></h4>
+          <%= t('.questions', count: test.questions.count) %>
+          <p class="m-lg-2">
+            <%= link_to t('helpers.link.show'), admin_test_path(test), class: 'btn btn-primary' %>
+            <%= link_to t('helpers.link.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %>
+            <%= link_to t('helpers.link.delete'), admin_test_path(test),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'},
+                        class: 'btn btn-danger' %>
+          </p>
+          </div>
       </div>
+  </div>
 
-      </div>
-  </article>

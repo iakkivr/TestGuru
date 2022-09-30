@@ -37,12 +37,14 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
     header:
-      root: "Главная"
+      root: "TestGuru"
       tests: "Тесты"
       nav_user: "Добро пожаловать, %{user}"
       logout: "Выход"
       login: "Вход"
       signup: "Регистрация"
+      admin_panel: "Панель администратора"
+      user_panel: "Панель пользователя"
 
 
   tests:
