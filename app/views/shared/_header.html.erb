@@ -7,6 +7,9 @@
       justify-content-lg-start ">
         <li><%= link_to t('.root'), root_path, class: 'nav-link px-2 text-white'%></li>
         <li><%= link_to t('.tests'), tests_path, class: 'nav-link px-2 text-white'%></li>
+        <%  if current_user.is_a?(Admin) %>
+          <li><%= link_to t('.admin_panel'), admin_tests_path, class: 'nav-link px-2 text-white'%></li>
+        <% end %>
       </ul>
     </nav>
   </div>
@@ -24,6 +27,10 @@
         <% end %>
       </ul>
     </nav>
+
   </div>
 </div>
 </header>
+
+
+

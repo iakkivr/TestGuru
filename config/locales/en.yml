@@ -35,13 +35,14 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
     header:
-      root: "Home"
+      root: "TestGuru"
       tests: "Tests"
       nav_user: "Welcome, %{user}"
       logout: "Logout"
       login: "Login"
       signup: "Signup"
-
+      admin_panel: "Admin panel"
+      user_panel: "User panel"
 
   tests:
     index:
@@ -79,6 +80,11 @@ en:
         header: "Create test"
       show:
         header: "Questions:"
+      test:
+        questions:
+          one: "%{count} question"
+          other: "%{count} questions"
+
     answers:
       new:
         header: "Create answer"
