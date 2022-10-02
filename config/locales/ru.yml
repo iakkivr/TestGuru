@@ -1,5 +1,9 @@
 ru:
 
+  nav_link:
+    tests: "Тесты"
+    gists: "Gists"
+
   helpers:
     select:
       # Default value for :prompt => true in FormOptionsHelper
@@ -99,3 +103,7 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  services:
+    gist_question_service:
+      description: "Вопрос про %{title} от TestGuru"

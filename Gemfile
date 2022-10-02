@@ -31,8 +31,11 @@ gem 'devise', '~> 4.0'
 
 #NETWORKING
 gem 'faraday'
-
+gem "octokit", "~> 5.0"
 #LOCALIZATION
+
+# to load env variables
+gem 'dotenv-rails'
 
 gem 'rails-i18n', '~> 6.0.0'
 
