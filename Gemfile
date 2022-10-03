@@ -29,9 +29,13 @@ gem 'annotate', '~> 3'
 #AUTH
 gem 'devise', '~> 4.0'
 
+#NETWORKING
+gem "octokit", "~> 5.0"
 #LOCALIZATION
-
 gem 'rails-i18n', '~> 6.0.0'
+
+# to load env variables
+gem 'dotenv-rails', groups: [:development, :test]
 
 #UI
 
