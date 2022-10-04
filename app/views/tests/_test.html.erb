@@ -1,14 +1,9 @@
-<div class="col-12 col-md-4">
-  <div class="card mt-2">
-    <article class="card">
-        <div class="card-body">
-          <h4 class="card-title"><%= test.title %></h4>
-          <%= t('.questions', count: test.questions.count) %>
-          <p>
-            <%= link_to pass_button(current_user, test), start_test_path(test), method: :post, class: 'btn btn-primary' %>
-          </p>
-        </div>
-    </article>
-  </div>
-</div>
+<tr>
+  <td><%= test.title %></td>
+  <td><%= test.level %></td>
+  <td><%= test.questions.count %></td>
+  <td><%= button_to pass_button(current_user, test), start_test_path(test), class: 'btn btn-outline-success btn-md' %></td>
+</tr>
+
+
 

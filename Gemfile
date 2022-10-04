@@ -41,7 +41,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.2.1'
-
+gem 'octicons_helper'
 
 #
 # Reduces boot times through caching; required in config/boot.rb
