@@ -2,6 +2,8 @@
 <div class="m-3">
   <%= link_to t('helpers.link.add'), new_admin_test_path, class: 'btn btn-primary' %>
 </div>
+
+<%= render 'shared/errors', object: @test %>
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">

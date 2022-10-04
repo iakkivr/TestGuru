@@ -28,7 +28,11 @@ class TestPassage < ApplicationRecord
   end
 
   def serial_number_question
-    "Вопрос #{test.questions.map(&:id).index(current_question.id) + 1} из #{test.questions.count} "
+    "Вопрос #{question_number} из #{test.questions.count} "
+  end
+
+  def question_number
+    test.questions.map(&:id).index(current_question.id) + 1
   end
 
   def result
