@@ -2,6 +2,17 @@
 <div class="m-3">
   <%= link_to t('helpers.link.add'), new_admin_test_path, class: 'btn btn-primary' %>
 </div>
-<div class="row m-3">
+<table class="table">
+  <tr>
+    <th class="sort-by-title pointer">
+      Title
+    <%= octicon 'arrow-up', class: 'text-success' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th>Level</th>
+    <th>Questions</th>
+    <th colspan="4">Actions</th>
+  </tr>
   <%= render partial: "test", collection: @tests %>
-</div>
+</table>
+
