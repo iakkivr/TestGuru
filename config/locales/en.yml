@@ -85,6 +85,8 @@ en:
       show:
         header: "Questions:"
       test:
+      form_inline:
+        submit: "Save"
         questions:
           one: "%{count} question"
           other: "%{count} questions"

@@ -89,6 +89,8 @@ ru:
         header: "Создание теста"
       show:
         header: "Список вопросов:"
+      form_inline:
+        submit: "Сохранить"
     answers:
       new:
         header: "Создание ответа"

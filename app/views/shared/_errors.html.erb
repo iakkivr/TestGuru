@@ -1,4 +1,4 @@
-<% if object.errors.present? %>
+<% if  object.present? && object.errors.any?  %>
   <div class="alert alert-danger col col-md-4 ">
     <h2>
         <%= t('.header', count: object.errors.count) %>:
