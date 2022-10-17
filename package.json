@@ -1,0 +1,25 @@
+{
+  "name": "testguru",
+  "version": "1.0.0",
+  "description": "Список сущностей проекта * Пользователи  * Тесты * Вопросы * Категории теста * Варианты ответов * Результаты",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iakkivr/TestGuru.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iakkivr/TestGuru/issues"
+  },
+  "homepage": "https://github.com/iakkivr/TestGuru#readme"
+}
