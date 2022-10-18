@@ -60,17 +60,17 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "testguru_production"
 
+
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'smolskiytestguru.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :tls                   =>  true,
-    :address               => 'smtp.yandex.ru',
-    :port                  => 465,
-    :authentication        => :plain,
-    :user_name             => 'smolskiy.vitaliy',
-    :password              => 'upeaxftsedmgxyta',
-    :enable_starttls_auto  => true
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_number: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
