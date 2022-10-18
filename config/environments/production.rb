@@ -69,7 +69,7 @@ Rails.application.configure do
     :port                  => 465,
     :authentication        => :plain,
     :user_name             => 'smolskiy.vitaliy',
-    :password              => '54626492',
+    :password              => 'upeaxftsedmgxyta',
     :enable_starttls_auto  => true
   }
 
