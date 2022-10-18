@@ -1,27 +1,16 @@
 {
   "name": "testguru",
-  "version": "1.0.0",
-  "description": "Список сущностей проекта * Пользователи  * Тесты * Вопросы * Категории теста * Варианты ответов * Результаты",
-  "main": "babel.config.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   },
+  "version": "0.1.0",
   "devDependencies": {
-    "cli-run": "^1.2.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iakkivr/TestGuru.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/iakkivr/TestGuru/issues"
-  },
-  "homepage": "https://github.com/iakkivr/TestGuru#readme"
+    "webpack-dev-server": "^3"
+  }
 }
