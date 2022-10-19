@@ -39,14 +39,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    tls: true,
-    address: "smtp.yandex.com",
-    port: 465,
-    domain: "yandex.ru",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: 'smolskiy.vitaliy@yandex.ru',
-    password: 'upeaxftsedmgxyta'
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_number: true
   }
 
   # Print deprecation notices to the Rails logger.
