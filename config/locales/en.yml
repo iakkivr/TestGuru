@@ -47,6 +47,7 @@ en:
       signup: "Signup"
       admin_panel: "Admin panel"
       user_panel: "User panel"
+      feedback: "Feedback"
 
   tests:
     index:
