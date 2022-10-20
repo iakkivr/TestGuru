@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-3">
   <div class="col col-md-3">
-    <h2>New Feedback</h2>
+    <h2><%= t('feedback.header')%></h2>
     <div class="card border-light border-2">
       <div class="card-body ">
         <%= form_with(model: @feedback, local: true) do |form| %>
@@ -19,7 +19,7 @@
             <%= form.label :body %>
             <%= form.text_area :body, autofocus: true, autocomplete: "", class: 'form-control'  %>
           </p>
-            <%= form.submit class: "btn btn-primary" %>
+            <%= form.submit t('feedback.send'), class: "btn btn-primary" %>
         <% end %>
       </div>
       </div>
