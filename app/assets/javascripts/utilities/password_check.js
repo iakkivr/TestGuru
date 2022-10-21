@@ -1,7 +1,7 @@
 document.addEventListener('turbolinks:load', function() {
     const inputForm = document.querySelector('form')
-    const confirmation = inputForm.elements.user_password_confirmation
-    const password = inputForm.elements.user_password
+    const confirmation = inputForm?.elements.user_password_confirmation
+    const password = inputForm?.elements.user_password
 
     if (inputForm) {inputForm.addEventListener('input', function() {
         if (confirmation) {

@@ -16,6 +16,8 @@ ru:
 
 
     label:
+      feedback:
+        body: "Текст"
       test:
         title: "Название"
         level: "Уровень сложности"
@@ -49,6 +51,7 @@ ru:
       signup: "Регистрация"
       admin_panel: "Панель администратора"
       user_panel: "Панель пользователя"
+      feedback: "Обратная связь"
 
 
   tests:
@@ -106,6 +109,19 @@ ru:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
 
+  feedback:
+      header: "Форма обратной связи"
+      send: "Отправить"
+
+  gists:
+    create:
+      success_html: "Gist создан!"
+      failure: "Ошибка"
+
   services:
     gist_question_service:
       description: "Вопрос про %{title} от TestGuru"
+
+  footer:
+    student: "Смольский Виталий - автор проекта. Студент онлайн школы"
+    profile: "Мой профиль"

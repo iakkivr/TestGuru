@@ -1,0 +1,28 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-3">
+    <h2><%= t('feedback.header')%></h2>
+    <div class="card border-light border-2">
+      <div class="card-body ">
+        <%= form_with(model: @feedback, local: true) do |form| %>
+          <div class="form-group">
+            <div>
+                <%= render 'shared/errors', object: @feedback %>
+            </div>
+
+
+          <p>
+            <%= form.label :email %>
+            <%= form.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          </p>
+
+          <p>
+            <%= form.label :body %>
+            <%= form.text_area :body, autofocus: true, autocomplete: "", class: 'form-control'  %>
+          </p>
+            <%= form.submit t('feedback.send'), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

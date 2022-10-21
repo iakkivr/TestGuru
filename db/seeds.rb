@@ -5,10 +5,7 @@ users = User.create!(
     {first_name: 'Dolly', last_name: 'Dolly',email: 'dolly@example.com', password: '3333333'},
     {first_name: 'Scott', last_name: 'Scott',email: 'scott@example.com', password: '4444444'},
     {first_name: 'Lewis', last_name: 'Lewis',email: 'lewis@example.com', password: '5555555'}
-  ]
-)
-
-
+  ])
 categories = Category.create!(
   [
     {title: 'geography'},
