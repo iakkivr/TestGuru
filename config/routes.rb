@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :badges
   resources :feedbacks, only: %i[new create]
   root 'pages#index'
 
