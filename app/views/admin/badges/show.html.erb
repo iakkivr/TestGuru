@@ -1,0 +1,11 @@
+
+
+<div class="m-lg-2">
+  <%= link_to t('helpers.link.add'), new_admin_badge_path(@badge), class: 'btn btn-primary mt-3' %>
+</div>
+
+<%= render partial: 'admin/badges/badge', collection: @badges %>
+
+<div class="m-lg-2">
+  <%= link_to t('helpers.link.back'), admin_badges_path, class: 'btn btn-secondary mt-3 mb-3 ml-3' %>
+</div>

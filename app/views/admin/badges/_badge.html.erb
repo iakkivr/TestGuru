@@ -1,0 +1,11 @@
+<article class="card">
+  <div class="card-body">
+    <h4><%= badge.title %></h4>
+    <h4><%= image_tag "#{badge.url_image}.png" %></h4>
+    <%= link_to t('helpers.link.edit'), edit_admin_badge_path(badge), class: 'btn btn-secondary' %>
+    <%= link_to t('helpers.link.delete'), admin_badge_path(badge),
+                method: :delete,
+                data: { confirm: 'Are you sure?'},
+                class: 'btn btn-danger' %>
+  </div>
+</article>

@@ -2,6 +2,7 @@
   <td><%= test.title %></td>
   <td><%= test.level %></td>
   <td><%= test.questions.count %></td>
+  <td><%= "#{current_user.test_passages.find_by(test_id: test.id)&.best_score.to_i} %" %></td>
   <td><%= button_to pass_button(current_user, test), start_test_path(test), class: 'btn btn-outline-success btn-md' %></td>
 </tr>
 

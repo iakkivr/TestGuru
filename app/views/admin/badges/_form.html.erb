@@ -1,0 +1,36 @@
+<%= form_with model: [:admin, @badge],  local: true do |f| %>
+  <div>
+    <%= render 'shared/errors', object: @badge %>
+  </div>
+  <div class="mb-3 row m-lg-2">
+    <%= f.label :title, class: 'col-sm-1 col-form-label' %>
+    <%= f.text_field :title, placeholder: 'Title',
+                     class: 'col-sm-5 col-form-label form-control' %>
+  </div>
+
+  <div class="mb-3 row m-lg-2">
+    <%= f.label :url_image, class: 'col-sm-1 col-form-label' %>
+    <%= f.text_field :url_image, placeholder: 'url_image',
+                     class: 'col-sm-5 col-form-label form-control' %>
+  </div>
+
+  <div class="mb-3 row m-lg-2">
+    <%= f.label :badge_rule_id, class: 'col-sm-1 col-form-label' %>
+    <%= f.collection_select :badge_rule_id, BadgeRule.all, :id, :title, prompt: true %>
+  </div>
+
+  <div class="mb-3 row m-lg-2">
+    <%= f.label :option, class: 'col-sm-1 col-form-label' %>
+      <%= f.text_field :option, placeholder: 'option',
+                     class: 'col-sm-5 col-form-label form-control' %>
+  </div>
+
+  <div class="m-lg-2">
+    <%= f.submit class: 'btn btn-success mb-3 '%>
+  </div>
+
+<% end %>
+<!--<p>-->
+  <%#= form.label :category_id %>
+  <%#= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+<!--</p>-->
