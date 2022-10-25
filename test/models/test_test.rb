@@ -2,7 +2,7 @@
 #
 # Table name: tests
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  title       :string(50)       not null
 #  level       :integer          default(0), not null
 #  category_id :integer          not null

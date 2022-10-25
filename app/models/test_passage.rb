@@ -6,8 +6,6 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
-  SUCCESS_RATIO = 85
-
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
@@ -18,8 +16,11 @@ class TestPassage < ApplicationRecord
   end
 
   def restart_test
-    self.current_question = test.questions.first
     self.score = result
+    self.current_question = test.questions.first
+    self.attempts += 1 if self.best_score < ENV.fetch('SUCCESS_RATIO').to_i
+    self.best_score = score if score > self.best_score.to_f
+    self.correct_questions = 0
     save!
   end
 
@@ -40,11 +41,10 @@ class TestPassage < ApplicationRecord
   end
 
   def successful?
-    result >= SUCCESS_RATIO
+    self.score >= ENV.fetch('SUCCESS_RATIO').to_i
   end
 
   def result_message
-    score = result
     successful? ? "Congratulations, your score is #{score}%, great" : "Sorry, you didn't pass. Your score
 is #{score}%"
   end
@@ -72,7 +72,7 @@ end
 #
 # Table name: test_passages
 #
-#  id                  :integer          not null, primary key
+#  id                  :bigint           not null, primary key
 #  user_id             :integer          not null
 #  test_id             :integer          not null
 #  created_at          :datetime         not null
@@ -80,4 +80,6 @@ end
 #  current_question_id :integer
 #  correct_questions   :integer          default(0)
 #  score               :decimal(, )
+#  attempts            :integer          default(0)
+#  best_score          :decimal(, )      default(0.0)
 #
