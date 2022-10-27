@@ -1,21 +1,8 @@
 class Badge < ApplicationRecord
 
-  belongs_to :badge_rule
-
   has_many :users, through: :achievements
   has_many :achievements, dependent: :destroy
-
-  scope :option, -> (option) { where option: option }
-  scope :rule, -> (temp) {
-    joins(:badge_rule)
-      .where(badge_rules: { title: temp })
-  }
-  scope :option, -> (option) { where option: option }
-
-
-  def self.rule_title
-    Badge.all.joins(:badge_rule).pluck(:title)
-  end
+  validates :rule_type,:rule_value, :title, :description, :url_image, presence: true
 
 end
 

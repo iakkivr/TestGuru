@@ -51,6 +51,6 @@ class Admin::BadgesController < Admin::BaseController
 
   # Only allow a list of trusted parameters through.
   def badge_params
-    params.require(:badge).permit(:title, :url_image, :option, :badge_rule_id)
+    params.require(:badge).permit(:title, :url_image, :rule_type, :rule_value)
   end
 end

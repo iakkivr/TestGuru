@@ -2,7 +2,7 @@
   <div class="card-body">
       <div class="float-left">
         <h4><%= badge_user.title %></h4>
-        <%= current_user.achievement(badge_user).created_at.strftime('%F') %>
+       <%= current_user.achievement(badge_user).created_at.strftime('%F') %>
       </div>
       <div class="float-right">
         <%= image_tag "#{badge_user.url_image}.png" %>

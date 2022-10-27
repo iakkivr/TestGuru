@@ -3,6 +3,7 @@ en:
   nav_link:
     tests: "Tests"
     gists: "Gists"
+    badges: "badges"
 
   helpers:
     select:
@@ -50,6 +51,8 @@ en:
       admin_panel: "Admin panel"
       user_panel: "User panel"
       feedback: "Feedback"
+      achievements: "achievements"
+      badges: "badges"
 
   tests:
     index:
@@ -63,6 +66,12 @@ en:
         one: "%{count} question"
         other: "%{count} questions"
 
+
+  badges:
+    index:
+      header: "Badges"
+    achievements:
+      header: "Achievements"
 
 
   pages:

@@ -33,19 +33,6 @@ class User < ApplicationRecord
   def achievement(badge)
     achievements.find_by(badge_id: badge.id)
   end
-
-  def count_passed_tests
-    test_passages.where("best_score > ?", ENV.fetch('SUCCESS_RATIO')).count
-  end
-
-  def category_completed?(category)
-    tests.joins(:category).where('categories.title' => category).count ==
-      Test.all.joins(:category).where('categories.title' => category).count
-  end
-
-  def test_attempts(test)
-    test
-  end
 end
 
 

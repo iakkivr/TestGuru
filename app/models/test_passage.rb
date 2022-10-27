@@ -12,14 +12,15 @@ class TestPassage < ApplicationRecord
     end
 
     self.current_question = next_question
+    self.passed = true if completed? && successful?
     save!
   end
 
   def restart_test
-    self.score = result
+    self.score = result || 0
     self.current_question = test.questions.first
+    self.best_score = [score, best_score.to_f].max
     self.attempts += 1 if self.best_score < ENV.fetch('SUCCESS_RATIO').to_i
-    self.best_score = score if score > self.best_score.to_f
     self.correct_questions = 0
     save!
   end
@@ -41,7 +42,7 @@ class TestPassage < ApplicationRecord
   end
 
   def successful?
-    self.score >= ENV.fetch('SUCCESS_RATIO').to_i
+    self.score.to_i >= ENV.fetch('SUCCESS_RATIO').to_i
   end
 
   def result_message
@@ -65,6 +66,7 @@ is #{score}%"
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
+    self.attempts = 1
   end
 end
 
