@@ -17,7 +17,7 @@ end
 #
 # Table name: answers
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  body        :string           not null
 #  correct     :boolean          default(FALSE), not null
 #  question_id :integer          not null

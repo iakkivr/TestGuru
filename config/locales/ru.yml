@@ -3,6 +3,7 @@ ru:
   nav_link:
     tests: "Тесты"
     gists: "Gists"
+    badges: "Значки"
 
   helpers:
     select:
@@ -52,6 +53,8 @@ ru:
       admin_panel: "Панель администратора"
       user_panel: "Панель пользователя"
       feedback: "Обратная связь"
+      achievements: "Достижения"
+      badges: "Значки"
 
 
   tests:
@@ -69,6 +72,12 @@ ru:
         other: "В тесте %{count} вопросов"
 
 
+
+  badges:
+    index:
+      header: "Значки"
+    achievements:
+      header: "Достижения"
 
   pages:
     index:

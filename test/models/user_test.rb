@@ -2,8 +2,8 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
-#  name                   :string           default("name"), not null
+#  id                     :bigint           not null, primary key
+#  first_name             :string           default("name"), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  email                  :string           default("")
@@ -21,7 +21,6 @@
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string
 #  type                   :string           default("User"), not null
-#  first_name             :string
 #  last_name              :string
 #
 require 'test_helper'

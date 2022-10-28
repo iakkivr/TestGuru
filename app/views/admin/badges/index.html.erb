@@ -1,0 +1,6 @@
+<h1>Badges</h1>
+<div class="m-3">
+  <%= link_to t('helpers.link.add'), new_admin_badge_path, class: 'btn btn-primary' %>
+</div>
+  <%= render partial: "badge", collection: @badges %>
+

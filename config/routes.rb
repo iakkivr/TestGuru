@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
 
+  resources :badges, only: :index
+  get 'achievements', to: 'badges#achievements'
   resources :feedbacks, only: %i[new create]
   root 'pages#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout}
+
 
   resources :tests, only: :index do
     post :start, on: :member
@@ -24,5 +27,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
+    resources :badges, shallow: true
   end
 end

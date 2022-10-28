@@ -14,9 +14,13 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
   has_many :gists, dependent: :destroy
+  has_many :achievements, dependent: :destroy
+  has_many :badges, through: :achievements
+
 
   validates :email, presence: true, length: { maximum: 100}, uniqueness: { case_sensitive: false },
             format: {with: URI::MailTo::EMAIL_REGEXP, message: "Wrong email"}
+
 
   def tests_by_user(level)
     tests.where(level: level)
@@ -26,6 +30,9 @@ class User < ApplicationRecord
     test_passages.find_by(test_id: test.id)
   end
 
+  def achievement(badge)
+    achievements.find_by(badge_id: badge.id)
+  end
 end
 
 
@@ -33,8 +40,8 @@ end
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
-#  name                   :string           default("name"), not null
+#  id                     :bigint           not null, primary key
+#  first_name             :string           default("name"), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  email                  :string           default("")
@@ -52,6 +59,5 @@ end
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string
 #  type                   :string           default("User"), not null
-#  first_name             :string
 #  last_name              :string
 #
