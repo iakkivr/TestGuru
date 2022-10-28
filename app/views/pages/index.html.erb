@@ -4,4 +4,8 @@
   <p class="list-group-item list-group-item-action">
     <%= link_to t('shared.header.tests'), tests_path, class: 'nav-link' %>
   </p>
+
+  <div onLoad = 'startTime()'>
+  <b>Время на сайте: <span id="time"></span></b>
+  </div>
 </div>

@@ -4,7 +4,8 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :user
 
-  before_validation :before_validation_set_first_question, on: :create
+  before_validation :before_validation_set_parameters, on: :create
+
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -42,7 +43,7 @@ class TestPassage < ApplicationRecord
   end
 
   def successful?
-    self.score.to_i >= ENV.fetch('SUCCESS_RATIO').to_i
+    self.score.to_i >= ENV.fetch('SUCCESS_RATIO').to_i && time_is_over?
   end
 
   def result_message
@@ -50,7 +51,13 @@ class TestPassage < ApplicationRecord
 is #{score}%"
   end
 
+  def time_is_over?
+    return false if self.test.time.nil?
+    self.test.time < Time.now - self.start_time
+  end
   private
+
+
 
   def correct_answer?(answer_ids)
     correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
@@ -64,9 +71,10 @@ is #{score}%"
     test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
-  def before_validation_set_first_question
+  def before_validation_set_parameters
     self.current_question = test.questions.first if test.present?
     self.attempts = 1
+    self.start_time = Time.now
   end
 end
 

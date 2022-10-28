@@ -1,11 +1,23 @@
 <h1>Passing the <%= @test_passage.test.title %> Test </h1>
 
-<div class="progress w-50">
+<div class="progress w-50 m-lg-3">
   <%= content_tag :div, '', class: 'progress-bar progress-bar-striped progress-bar-animated. bg-success', style: '',
                   data: { question_number: @test_passage.question_number ,
                           questions_count: @test_passage.test.questions.count},
                   id: 'test-passage-progress-bar' %>
 </div>
+
+
+<% if @test_passage.test.time.present? %>
+  <div> <%= "Time passing test #{@test_passage.test.time} sec" %></div>
+  <div class="progress w-50 m-lg-3">
+    <%= content_tag :div, '',class: 'progress-bar progress-bar-striped progress-bar-animated. bg-success', style: '',
+                    data: { start_time: @test_passage.start_time.to_f * 1000,
+                            time:@test_passage.test.time
+                    },
+                    id: 'test-passage-countdown-timer' %>
+  </div>
+<% end %>
 
 <b class="m-3" >
   <%= @test_passage.current_question.body %>
